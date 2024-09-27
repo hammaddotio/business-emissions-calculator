@@ -8,15 +8,12 @@ const Shipping = () => {
     const {
         formData,
         handleInputChange,
+        emissionFactors, // Access emission factors from context
     } = useCalculator();
 
-    // Calculate emissions based on inputs (adjust calculation as needed)
-    const tonnesCO2 = formData.averageMPG * formData.shipmentWeight * formData.shipmentDistance * 0.0001 || 0;
-
-    // This useEffect can be added in the Context provider to handle calculation updates.
-    // useEffect(() => {
-    //     calculateEmissionsAndCost('shipping', tonnesCO2);
-    // }, [formData.averageMPG, formData.shipmentWeight, formData.shipmentDistance]);
+    // Calculate emissions based on selected shipping method
+    const emissionFactor = emissionFactors[formData.selectedMethod] || 0;
+    const tonnesCO2 = formData.shipmentWeight * formData.shipmentDistance * emissionFactor || 0;
 
     return (
         <div className="p-8">

@@ -11,7 +11,7 @@ import { useCalculator } from "./Context/CalculatorContextApi";
 import { tabs } from './utils/constants';
 
 function App() {
-  const { activeTab, formData, handleTabChange } = useCalculator()
+  const { formData, handleTabChange } = useCalculator()
 
 
   return (

@@ -25,7 +25,7 @@ const Electric = () => {
             </div>
             <div className="mb-4 text-xl flex flex-col gap-4">
                 <p className="text-gray-700">
-                    Tonnes CO2: <span className="font-medium">{formData.emissions}</span>
+                    Tonnes CO2: <span className="font-medium">{(formData.electricityUsage * 0.0001).toFixed(4)}</span>
                 </p>
                 <p className="text-gray-700">
                     Total Estimation Cost: <span className="font-medium text-black">${formData.emissionTotals.toFixed(2)}</span>

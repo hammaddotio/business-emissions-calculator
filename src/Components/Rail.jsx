@@ -7,7 +7,7 @@ const Rail = () => {
 
     // Fallback values to handle undefined values from context
     const railEmissions = formData.railEmissions || 0; // Assuming railEmissions is calculated in the context
-    const railCost = formData.railCost || 0; // Assuming railCost is calculated in the context
+    const railCost = (formData.railUsage * 0.0001) || 0; // Assuming railCost is calculated in the context
 
     return (
         <div className="p-8">

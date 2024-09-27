@@ -8,15 +8,9 @@ const Air = () => {
         handleInputChange,
     } = useCalculator();
 
-    // Fallback values to avoid issues if the context values are not yet initialized
-    const airEmissions = formData.airEmissions || 0;
-    const airCost = formData.airCost || 0;
-
     return (
         <div className="p-8">
             <h1 className="text-3xl font-medium mb-4">Annual Air Travel</h1>
-
-            {/* Input for Total Air Miles Traveled */}
             <div className="mb-4 w-2/4 rounded-full">
                 <label className="font-medium text-gray-700 mb-2">Total Miles</label>
                 <input
@@ -29,18 +23,14 @@ const Air = () => {
                     min="0"
                 />
             </div>
-
-            {/* Displaying Calculated CO2 Emissions and Cost */}
             <div className="mb-4 text-xl flex flex-col gap-4">
                 <p className="text-gray-700">
-                    Tonnes CO₂: <span className="font-medium">{airEmissions.toFixed(2)}</span>
+                    Tonnes CO2: <span className="font-medium">{(formData.airUsage * 0.0001).toFixed(4)}</span>
                 </p>
                 <p className="text-gray-700">
-                    Total Estimation Cost: <span className="font-medium text-black">${airCost.toFixed(2)}</span>
+                    Total Estimation Cost: <span className="font-medium text-black">${formData.airUsage.toFixed(2)}</span>
                 </p>
             </div>
-
-            {/* Navigation Buttons */}
             <Buttons />
         </div>
     );
